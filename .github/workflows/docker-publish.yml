@@ -82,7 +82,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: kubestar/alertmanager-webhook-json
-          dockerfile: deploy/build/Dockerfile
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           platforms: linux/arm64
