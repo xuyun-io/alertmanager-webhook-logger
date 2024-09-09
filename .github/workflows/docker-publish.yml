@@ -12,7 +12,7 @@ jobs:
   #   - name: "setup go"
   #     uses: actions/setup-go@v5
   #     with:
-  #       go-version: '1.22'
+  #       go-version: '1.23'
   #   - name: Set output
   #     id: vars
   #     run: echo "tag=$(date +%Y%m%d%H%M%S)-$(echo ${GITHUB_SHA} | cut -c1-8)-$(echo ${GITHUB_REF} | sed -e "s/refs\/heads\///g" | sed -e "s/\//-/g")" >> $GITHUB_OUTPUT
@@ -54,7 +54,7 @@ jobs:
       - name: "setup go"
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: '1.23'
       - name: Set output
         id: vars
         run: echo "tag=$(date +%Y%m%d%H%M%S)-$(echo ${GITHUB_SHA} | cut -c1-8)-$(echo ${GITHUB_REF} | sed -e "s/refs\/heads\///g" | sed -e "s/\//-/g")" >> $GITHUB_OUTPUT
@@ -63,9 +63,6 @@ jobs:
           RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |
           echo ${{ steps.vars.outputs.tag }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
       - name: "manifest"
         run:  echo `git log | grep commit | head -1 | cut -d" " -f2` > manifest
       - uses: actions/cache@v4
