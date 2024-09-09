@@ -5,7 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -installsuffix 'static' . 
+# RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -installsuffix 'static' . 
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -installsuffix 'static' . 
 
 RUN echo 'nobody:x:65534:65534:nobody:/:' > /etc/passwd && \
     echo 'nobody:x:65534:' > /etc/group
